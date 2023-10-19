@@ -1,7 +1,9 @@
 // SearchResults.js
 import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
+import { Card, CardContent, Typography, Grid } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import CustomCardMedia from './common/CustomCardMedia'
+
 
 const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
 const apiUrl =  `${process.env.REACT_APP_NEWSAPI_URL}/everything`;
@@ -30,12 +32,7 @@ const SearchResults = () => {
         {searchResults.map((article, index) => (
           <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
             <Card>
-              <CardMedia
-                component="img"
-                height="140"
-                image={article.urlToImage}
-                alt={article.title}
-              />
+            <CustomCardMedia article={article}/>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
                   {article.title}

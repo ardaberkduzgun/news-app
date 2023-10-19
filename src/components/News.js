@@ -1,8 +1,10 @@
 //News.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Grid, Paper, CardMedia } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
+import CustomCardMedia from './common/CustomCardMedia'
+
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -39,14 +41,7 @@ const News = () => {
             <Paper elevation={3} className="news-article">
               <h2>{article.title}</h2>
               <p>{article.description}</p>
-              {
-               <CardMedia
-               component="img"
-               height="140"
-               image={article.urlToImage}
-               alt={article.title}
-             />
-              /* Add more fields as needed */}
+              <CustomCardMedia article={article}/>
             </Paper>
           </Grid>
         ))}

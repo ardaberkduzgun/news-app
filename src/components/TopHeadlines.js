@@ -1,7 +1,8 @@
 // TopHeadlines.js
 import React, { useEffect, useState } from 'react';
-import { Card, CardContent, Typography, Grid, Paper, CardMedia } from '@mui/material';
-
+import {CardContent, Typography, Grid, Paper } from '@mui/material';
+import CustomCardMedia from './common/CustomCardMedia'
+ 
 const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
 const apiUrl = process.env.REACT_APP_NEWSAPI_URL +  '/top-headlines';
 
@@ -36,13 +37,7 @@ const TopHeadlines = () => {
               <Typography variant="body2">
                 {article.description}
               </Typography>
-               <CardMedia
-               component="img"
-               height="140"
-               image={article.urlToImage}
-               alt={article.title}
-             />
-              
+              <CustomCardMedia article={article}/>
             </CardContent>
           </Paper>
         </Grid>
