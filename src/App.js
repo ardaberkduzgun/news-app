@@ -9,8 +9,9 @@ import SearchResults from './components/SearchResults';
 function App() {
   return (
     <div>
+      <Header />
       <Routes>
-        <Route path="/" element={<Header />} />
+      <Route path="/" element={<News />} />
         <Route path="/auth" element={<AuthenticationPage />} />
         <Route path="/top-headlines" element={<TopHeadlines />} />
         <Route path="/search" element={<SearchResults />} />

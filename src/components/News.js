@@ -11,8 +11,8 @@ const News = () => {
   
 
   useEffect(() => {
-    const apiKey = 'd22436a596554c609ceafdf92193a95f';
-    const apiUrl = `https://newsapi.org/v2/everything?q=new&apiKey=${apiKey}`;
+    const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
+    const apiUrl = `${process.env.REACT_APP_NEWSAPI_URL}/everything?q=new&apiKey=${apiKey}`;
 
     axios.get(apiUrl)
       .then(response => {

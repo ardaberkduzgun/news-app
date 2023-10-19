@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
-const apiKey = 'd22436a596554c609ceafdf92193a95f'; // Replace with your News API key
-const apiUrl = 'https://newsapi.org/v2/everything';
+const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
+const apiUrl =  `${process.env.REACT_APP_NEWSAPI_URL}/everything`;
 const pageSize = 20; // 20 news articles per page
+
 
 const SearchResults = () => {
   const location = useLocation();

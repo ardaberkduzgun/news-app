@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, Grid, Paper, CardMedia } from '@mui/material';
 
-const apiKey = 'd22436a596554c609ceafdf92193a95f'; // Replace with your News API key
-const apiUrl = 'https://newsapi.org/v2/top-headlines';
+const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
+const apiUrl = process.env.REACT_APP_NEWSAPI_URL +  '/top-headlines';
+
+
 const country = 'us';
 const category = 'business';
 const pageSize = 20; // 20 news articles per page
