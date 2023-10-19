@@ -14,7 +14,8 @@ const TopHeadlines = () => {
   useEffect(() => {
     debugger;
     // Fetch top headlines data from the News API
-    fetch(`${apiUrl}?country=${country}&category=${category}&pageSize=${pageSize}&apiKey=${apiKey}`)
+    const sendURL = `${apiUrl}?country=${country}&category=${category}&pageSize=${pageSize}&apiKey=${apiKey}`; 
+    fetch(sendURL)
       .then((response) => response.json())
       .then((data) => {
         setHeadlines(data.articles);

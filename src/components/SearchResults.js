@@ -15,8 +15,8 @@ const SearchResults = () => {
 
   useEffect(() => {
     console.log('Query:', query);
-    fetch(`${apiUrl}?q=${query}&pageSize=${pageSize}&page=${page}&apiKey=${apiKey}`)
-   
+    const sentURL = `${apiUrl}?q=${query}&pageSize=${pageSize}&page=${page}&apiKey=${apiKey}`;
+    fetch(sentURL)
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data.articles);
