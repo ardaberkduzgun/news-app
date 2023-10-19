@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import { UserProvider } from './components/UserContext';
 import { CssBaseline } from '@mui/material';
@@ -8,7 +8,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 const theme = createTheme();
 
-ReactDOM.render(
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <UserProvider>
       <ThemeProvider theme={theme}>
@@ -19,5 +21,4 @@ ReactDOM.render(
       </ThemeProvider>
     </UserProvider>
   </React.StrictMode>,
-  document.getElementById('root')
 );
