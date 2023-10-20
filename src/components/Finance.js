@@ -7,7 +7,7 @@ import Pagination from '@mui/material/Pagination';
 import CustomCardMedia from './common/CustomCardMedia'
 
 
-const News = () => {
+const Finance = () => {
   const [news, setNews] = useState([]);
   const [page, setPage] = useState(1);
   const articlesPerPage = 20;
@@ -15,7 +15,7 @@ const News = () => {
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_NEWSAPI_KEY; 
-    const apiUrl = `${process.env.REACT_APP_NEWSAPI_URL}/everything?q=news&apiKey=${apiKey}`;
+    const apiUrl = `${process.env.REACT_APP_NEWSAPI_URL}/everything?q=finance&apiKey=${apiKey}`;
 
     axios.get(apiUrl)
       .then(response => {
@@ -62,4 +62,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default Finance;

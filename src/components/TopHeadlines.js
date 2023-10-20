@@ -1,6 +1,7 @@
 // TopHeadlines.js
 import React, { useEffect, useState } from 'react';
-import {CardContent, Typography, Grid, Paper } from '@mui/material';
+import {CardContent, Typography, Grid, Paper, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 import CustomCardMedia from './common/CustomCardMedia'
  
 const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
@@ -15,7 +16,6 @@ const TopHeadlines = () => {
   const [headlines, setHeadlines] = useState([]);
 
   useEffect(() => {
-    debugger;
     // Fetch top headlines data from the News API
     const sendURL = `${apiUrl}?country=${country}&category=${category}&pageSize=${pageSize}&apiKey=${apiKey}`; 
     fetch(sendURL)
@@ -37,6 +37,9 @@ const TopHeadlines = () => {
               <Typography variant="body2">
                 {article.description}
               </Typography>
+              <Button component={Link} to={article.url} target="_blank" rel="noopener noreferrer">
+                  Read More
+                </Button>
               <CustomCardMedia article={article}/>
             </CardContent>
           </Paper>
