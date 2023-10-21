@@ -5,32 +5,27 @@ import Grid from '@mui/material/Grid';
 
 function NotFoundPage() {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh'
-      }}
-    >
-      <Container maxWidth="md">
-        <Grid container>
-          <Grid xs={12} sm={6} md={6} lg={6}>
-            <Typography variant="h6">
-              The page you’re searching for doesn’t exist.
-            </Typography>
-            <Button variant="contained" component={Link} to="/">Back Home</Button>
-          </Grid>
-          <Grid xs={12} sm={6} md={6} lg={6}>
-            <img
-              src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg"
-              alt=""
-              width={500} height={250}
-            />
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+  
+    <Grid container sx={{ paddingTop: 5 }}>
+  <Grid item xs={12} sx={{ paddingLeft: 3 }}>
+    <Typography variant="subtitle2">
+      The page you’re searching for doesn’t exist.
+    </Typography>
+  </Grid>
+  <Grid item xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center", paddingTop: 3 }}>
+    <img
+      src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg"
+      alt=""
+      style={{ maxWidth: "80%", maxHeight: "80%", width: "auto", height: "auto" }}
+    />
+  </Grid>
+  <Grid item xs={12} style={{ display: "flex", justifyContent: "center", alignItems: "center", paddingTop: 3 }}>
+    <Button variant="contained" component={Link} to="/">
+      Back Home
+    </Button>
+  </Grid>
+</Grid>
+
   );
 }
 

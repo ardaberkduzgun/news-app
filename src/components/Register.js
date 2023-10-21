@@ -24,7 +24,6 @@ const Register = () => {
       <TextField
         label="Username"
         variant="outlined"
-        fullWidth
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
@@ -32,7 +31,6 @@ const Register = () => {
         label="Password"
         variant="outlined"
         type="password"
-        fullWidth
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />

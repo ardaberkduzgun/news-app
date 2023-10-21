@@ -35,7 +35,7 @@ const News = () => {
   const displayedNews = news.slice(startIndex, endIndex);
 
   return (
-    <div className="news-container">
+    <Grid className="news-container" sx={{paddingLeft:1}}>
       <Grid container spacing={2}>
         {displayedNews.map((article, index) => (
           <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
@@ -58,7 +58,7 @@ const News = () => {
         size="large"
         style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
       />
-    </div>
+    </Grid>
   );
 };
 

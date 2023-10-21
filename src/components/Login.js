@@ -29,12 +29,12 @@ const Login = () => {
   };
 
   return (
-    <Box sx={{paddingLeft:2}}>
+    <Box sx={{ paddingLeft: 2 }}>
       <h2>Login Page</h2>
 
       <Grid container>
         <Grid item xs={12} sm={12} md={12} lg={12}
-        sx={{ paddingTop: 1 }} >
+          sx={{ paddingTop: 1 }} >
           <TextField
             label="Username"
             variant="outlined"
@@ -43,7 +43,7 @@ const Login = () => {
           />
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12}
-        sx={{ paddingTop: 1 }}>
+          sx={{ paddingTop: 1 }}>
           <TextField
             label="Password"
             variant="outlined"
@@ -52,12 +52,12 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Grid>
-        <Grid xs={12} sm={12} md={12} lg={12} 
-        sx={{ paddingTop: 1 }}>
-        <Button variant="contained" color="primary" onClick={handleLogin}>
-          Login
-        </Button>
-      </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12}
+          sx={{ paddingTop: 1 }}>
+          <Button variant="contained" color="primary" onClick={handleLogin}>
+            Login
+          </Button>
+        </Grid>
       </Grid>
     </Box>
   );

@@ -25,60 +25,65 @@ const Header = () => {
   };
 
   return (
-      <AppBar position="static">
-        <Toolbar >
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton component={Link} to="/" color="inherit">
-              <HomeIcon/>
-            </IconButton>
-            <Button component={Link} to="/top-headlines" color="inherit" variant="text">
-              Top Headlines
-            </Button>
-            <Button component={Link} to="/finance" color="inherit" variant="text">
-              Finance
-            </Button>
-            <Button component={Link} to="/sports" color="inherit" variant="text">
-              Sports
-            </Button>
-            <Button component={Link} to="/top-headlines" color="inherit" variant="text">
-              Business
-            </Button>
-           
-              <InputBase color='secondary'
-                placeholder="  Search..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                sx={{ backgroundColor: "white", borderRadius:2 }}
-                
-              />
-              <SearchIcon onClick={handleSearch} >
-                Search
-              </SearchIcon>
-          </Box>
-          </Typography>
+    
+<AppBar position="static">
+  <Toolbar>
+    <Grid container alignItems="center" justifyContent="space-between">
+      <Grid item xs={12} sm={6}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <IconButton component={Link} to="/" color="inherit">
+            <HomeIcon />
+          </IconButton>
+          <Button component={Link} to="/top-headlines" color="inherit" variant="text">
+            Headlines
+          </Button>
+          <Button component={Link} to="/finance" color="inherit" variant="text">
+            Finance
+          </Button>
+          <Button component={Link} to="/sports" color="inherit" variant="text">
+            Sports
+          </Button>
+          <Button component={Link} to="/top-headlines" color="inherit" variant="text">
+            Business
+          </Button>
+        </Box>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+          <InputBase
+            color="secondary"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            sx={{ backgroundColor: "white", borderRadius: 2 }}
+          />
+          <SearchIcon onClick={handleSearch}>
+            Search
+          </SearchIcon>
           {isLoggedIn ? (
-            <div>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Button color="inherit">
-                <PersonIcon /> {localStorage.getItem('username')} {/* Show the logged-in username */}
+                <PersonIcon /> {localStorage.getItem('username')}
               </Button>
               <Button color="inherit" onClick={handleLogout}>
                 Logout
               </Button>
-            </div>
+            </Box>
           ) : (
-            <div>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Button color="inherit" component={Link} to="/auth/login">
                 Login
               </Button>
               <Button color="inherit" component={Link} to="/auth/register">
                 Register
               </Button>
-            </div>
+            </Box>
           )}
-
-        </Toolbar>
-      </AppBar>
+        </Box>
+      </Grid>
+    </Grid>
+  </Toolbar>
+</AppBar>
   );
 };
 
