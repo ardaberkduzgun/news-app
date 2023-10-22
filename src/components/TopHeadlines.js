@@ -1,4 +1,3 @@
-// TopHeadlines.js
 import React, { useEffect, useState } from 'react';
 import {CardContent, Typography, Grid, Paper, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -10,13 +9,13 @@ const apiUrl = process.env.REACT_APP_NEWSAPI_URL +  '/top-headlines';
 
 const country = 'us';
 const category = 'business';
-const pageSize = 20; // 20 news articles per page
+const pageSize = 20;
 
 const TopHeadlines = () => {
   const [headlines, setHeadlines] = useState([]);
 
   useEffect(() => {
-    // Fetch top headlines data from the News API
+
     const sendURL = `${apiUrl}?country=${country}&category=${category}&pageSize=${pageSize}&apiKey=${apiKey}`; 
     fetch(sendURL)
       .then((response) => response.json())
@@ -38,7 +37,7 @@ const TopHeadlines = () => {
                 {article.description}
               </Typography>
               <Button component={Link} to={article.url} target="_blank" rel="noopener noreferrer">
-                  Read More
+                  Learn More
                 </Button>
               <CustomCardMedia article={article}/>
             </CardContent>

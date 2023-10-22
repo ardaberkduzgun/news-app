@@ -1,30 +1,32 @@
 import React, { useState } from 'react';
 import { Button, TextField, Grid, Box } from '@mui/material';
-import { authenticateUser } from './Authentication'; // Import your authentication function
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import { users } from '../data/mockData';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [username, setUsername] = useState('user1');
+  const [password, setPassword] = useState('pas123.');
+  const navigate = useNavigate();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn, login, logout } = useAuth();
 
 
   const handleLogin = () => {
-    // Call the authenticateUser function with username and password
+    
+    debugger;
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
     const user = users.find((user) => user.username === username && user.password === password);
     if (user) {
-      // Successful login logic (e.g., redirect to news page)
       console.log('Login successful');
-      localStorage.setItem('username', username);
-      console.log(username);
-      setIsLoggedIn(true);
-      navigate('/'); // Redirect to the home page
+      navigate('/'); 
+      login(username);
+      
     } else {
-      // Handle login failure (e.g., show an error message)
-      console.log('Login failed');
+      window.alert('Login failed. Please check your username and password.');
+      localStorage.setItem('isLoggedIn',false);
+      logout();
     }
   };
 

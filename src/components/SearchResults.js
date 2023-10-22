@@ -1,17 +1,10 @@
-// SearchResults.js
 import React, { useEffect, useState } from 'react';
-import { Card, CardContent, Typography, Grid } from '@mui/material';
+import { Card, CardContent, Typography, Grid, Box} from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import CustomCardMedia from './common/CustomCardMedia';
 import axios from 'axios';
 import NotFoundPage from './common/NotFoundPage'
-
-
-
-
-
-
 
 const SearchResults = () => {
   const location = useLocation();
@@ -30,7 +23,7 @@ const SearchResults = () => {
     axios.get(sentURL)
       .then(response => {
         if (response.data.totalResults > 0) {
-          setSearchResults(response.data.articles); // response.data ile veriye eriş
+          setSearchResults(response.data.articles);
         }
         else {
           setSearchResults([]);
@@ -51,7 +44,7 @@ const SearchResults = () => {
   const displayedNews = searchResults.slice(startIndex, endIndex);
 
   return (
-    <div>
+    <Box sx={{ paddingLeft: 2 }}>
       <Grid container spacing={2}>
         {searchResults.length > 0 ? searchResults.map((article, index) => (
           <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
@@ -81,7 +74,7 @@ const SearchResults = () => {
         size="large"
         style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
       />
-    </div>
+    </Box>
   );
 };
 

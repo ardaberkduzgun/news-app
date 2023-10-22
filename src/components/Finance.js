@@ -1,4 +1,3 @@
-//News.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Grid, Paper, Card, CardContent, Typography, Button } from '@mui/material';
@@ -43,7 +42,7 @@ const Finance = () => {
               <h2>{article.title}</h2>
               <p>{article.description}</p>
               <Button component={Link} to={article.url} target="_blank" rel="noopener noreferrer">
-                  Read More
+                  Learn More
                 </Button>
               <CustomCardMedia article={article}/>
             </Paper>
