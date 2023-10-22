@@ -14,7 +14,6 @@ const Login = () => {
 
   const handleLogin = () => {
     
-    debugger;
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
     const user = users.find((user) => user.username === username && user.password === password);

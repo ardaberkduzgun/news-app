@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {CardContent, Typography, Grid, Paper, Button } from '@mui/material';
+import {CardContent, Typography, Grid, Paper, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import CustomCardMedia from './common/CustomCardMedia'
+import CustomCardMedia from '../common/CustomCardMedia'
  
 const apiKey = process.env.REACT_APP_NEWSAPI_KEY;
 const apiUrl = process.env.REACT_APP_NEWSAPI_URL +  '/top-headlines';
@@ -42,6 +42,9 @@ const TopHeadlines = () => {
               <CustomCardMedia article={article}/>
             </CardContent>
           </Paper>
+          {(index + 1) % 4 === 0 && (
+              <Box sx={{ borderTop: 1, borderColor: 'divider' }} mt={2} mb={2} display={{ xs: 'none', sm: 'none', md: 'inline-block', lg:'inline-block' }} />
+            )}
         </Grid>
       ))}
     </Grid>

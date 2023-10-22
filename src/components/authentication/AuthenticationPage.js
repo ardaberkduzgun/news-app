@@ -6,8 +6,6 @@ import Register from './Register';
 const AuthenticationPage = () => {
   const [isLogin, setIsLogin] = useState(true);
 
-  debugger;
-
   const handleLogin = (loginValue) => {
     setIsLogin(loginValue);
   }

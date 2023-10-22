@@ -8,7 +8,6 @@ export const authenticateUser = (username, password) => {
 
 export const registerUser = (username, password, name, surname, interests, email) => {
 
-  debugger;
   const users = JSON.parse(localStorage.getItem('users')) || [];
   
   const newUser = {

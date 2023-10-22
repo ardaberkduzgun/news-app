@@ -16,6 +16,5 @@ const CustomCardMedia = ({ article }) => {
       />
     );
   };
-  
 
 export default CustomCardMedia;

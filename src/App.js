@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import News from './components/News';
-import AuthenticationPage from './components/AuthenticationPage';
+import News from './components/pages/News';
+import AuthenticationPage from './components/authentication/AuthenticationPage';
 import Header from './components/Header';
-import TopHeadlines from './components/TopHeadlines';
-import SearchResults from './components/SearchResults';
-import Finance from './components/Finance';
-import Sports from './components/Sports';
-import Business from './components/Business';
-import Arts from './components/Art';
-import { useAuth } from './components/AuthContext';
+import TopHeadlines from './components/pages/TopHeadlines';
+import SearchResults from './components/pages/SearchResults';
+import Finance from './components/pages/Finance';
+import Sports from './components/pages/Sports';
+import Business from './components/pages/Business';
+import Arts from './components/pages/Art';
+import { useAuth } from './components/authentication/AuthContext';
+import Science from './components/pages/Science';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/finance" element={<Finance />} />
         <Route path="/sports" element={<Sports />} />
         <Route path="/business" element={<Business />} />
+        <Route path="/science" element={<Science />} />
         <Route path="/arts" element={<Arts />} />
         <Route path="/auth/*" element={<AuthenticationPage />} />
         <Route path="/search" element={<SearchResults />} />

@@ -4,7 +4,7 @@ import App from './App';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthProvider } from './components/AuthContext'; // AuthContext'u içeri aktarın
+import { AuthProvider } from './components/authentication/AuthContext'; // AuthContext'u içeri aktarın
 
 
 const theme = createTheme();

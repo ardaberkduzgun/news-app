@@ -4,11 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Button, InputBase, IconButton,Grid  } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
-import { logoutUser } from './Authentication'; 
 import PersonIcon from '@mui/icons-material/Person';
 import HomeIcon from '@mui/icons-material/Home';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import { useAuth } from './AuthContext';
+import { useAuth } from './authentication/AuthContext';
 
 
 const Header = () => {
