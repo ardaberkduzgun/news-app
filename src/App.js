@@ -11,6 +11,9 @@ import Business from './components/pages/Business';
 import Arts from './components/pages/Art';
 import { useAuth } from './components/authentication/AuthContext';
 import Science from './components/pages/Science';
+import Travel from './components/pages/Travel';
+import Health from './components/pages/Health';
+import Personalized from './components/pages/Personalized';
 
 function App() {
 
@@ -42,9 +45,13 @@ function App() {
         <Route path="/sports" element={<Sports />} />
         <Route path="/business" element={<Business />} />
         <Route path="/science" element={<Science />} />
+        <Route path="/health" element={<Health />} />
         <Route path="/arts" element={<Arts />} />
-        <Route path="/auth/*" element={<AuthenticationPage />} />
+        <Route path="/travel" element={<Travel />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/personalized" element={<Personalized />} />
+        <Route path="/auth/*" element={<AuthenticationPage />} />
+       
 
       </Routes>
     </div>

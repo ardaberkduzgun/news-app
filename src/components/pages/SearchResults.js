@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Paper,Grid, Box, Button } from '@mui/material';
+import { Paper,Grid, Box, Button, TextField } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
@@ -43,7 +43,6 @@ const SearchResults = () => {
           ...nyTimesResponse.data.response.docs,
         ];
 
-        // Sort the combinedData by publication date in descending order
         combinedData.sort((a, b) => {
           const dateA = a.publishedAt || a.webPublicationDate || a.pub_date;
           const dateB = b.publishedAt || b.webPublicationDate || b.pub_date;
@@ -68,6 +67,21 @@ const SearchResults = () => {
   const displayedNews = searchResults.slice(startIndex, endIndex);
 
   return (
+    <>
+    <Grid item xs={12} sm={12} md={12} lg={12}>
+      <TextField>
+        Author
+      </TextField>
+      <TextField>
+        Category
+        </TextField>
+        <TextField>
+        Date
+        </TextField>
+      <Button>
+          Filter
+      </Button>
+    </Grid>
     <Grid className="news-container" sx={{paddingLeft:1}}>
       <Grid container spacing={2}>
         {displayedNews.map((article, index) => (
@@ -95,6 +109,7 @@ const SearchResults = () => {
         style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
       />
     </Grid>
+    </>
   );
 };
 
