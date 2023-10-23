@@ -16,7 +16,15 @@ const Header = () => {
   const { isLoggedIn, login, logout } = useAuth();
 
   const handleSearch = () => {
-    navigate(`/search?q=${searchTerm}`);
+    if (searchTerm.trim() !== '') {
+      navigate(`/search?q=${searchTerm}`);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   const handleLogout = () => {
@@ -25,9 +33,7 @@ const Header = () => {
     navigate('/');
   };
 
-
   return (
-
     <AppBar position="static">
       <Toolbar>
         <Grid container alignItems="center" justifyContent="space-between">
@@ -77,6 +83,7 @@ const Header = () => {
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyPress={handleKeyPress}
                 sx={{ backgroundColor: "white", borderRadius: 2 }}
               />
               <IconButton color="inherit" onClick={handleSearch}>
@@ -87,7 +94,7 @@ const Header = () => {
               {isLoggedIn ? (
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Button component={Link} to="/personalized" color="inherit" variant="text">
-                  Personalized News
+                    Personalized News
                   </Button>
                   <Button color="inherit">
                     <PersonIcon />
