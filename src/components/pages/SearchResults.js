@@ -15,6 +15,7 @@ const SearchResults = () => {
   const articlesPerPage = 20;
 
   const handleFilter = () => {
+
   };
 
   useEffect(() => {
@@ -41,14 +42,51 @@ const SearchResults = () => {
         ]);
 
         const combinedData = [
-          ...newsResponse.data.articles,
-          ...guardianResponse.data.response.results,
-          ...nyTimesResponse.data.response.docs,
+          
+          ...newsResponse.data.articles.map(item => {
+
+            const { title,publishedAt,author, ...rest } = item;
+
+            return {
+              category: item.title,
+              publishedDate: item.publishedAt,
+              author: item.author,
+              ...rest
+            };
+          }),
+          
+          ...guardianResponse.data.response.results.map(item => {
+            
+            const { pillarName,webPublicationDate, ...rest } = item;
+
+            return {
+              category: item.pillarName,
+              publishedDate: item.webPublicationDate,
+              ...rest
+            };
+          }),
+        
+          ...nyTimesResponse.data.response.docs.map(item => {
+            const { section, published_date, ...rest } = item;
+                      const author = item.byline && item.byline.person && item.byline.person.length > 0
+              ? (item.byline.person[0].firstname + ' ' + item.byline.person[0].lastname)
+              : 'Unknown Author';
+          
+            return {
+              category: section,
+              publishedDate: published_date,
+              author,
+              ...rest
+            };
+          })
         ];
 
+        debugger;
+
+
         combinedData.sort((a, b) => {
-          const dateA = a.publishedAt || a.webPublicationDate || a.pub_date;
-          const dateB = b.publishedAt || b.webPublicationDate || b.pub_date;
+          const dateA = a.publishedAt || a.webPublicationDate || a.published_date;
+          const dateB = b.publishedAt || b.webPublicationDate || b.published_date;
           return new Date(dateB) - new Date(dateA);
         });
 
@@ -68,11 +106,12 @@ const SearchResults = () => {
   const startIndex = (page - 1) * articlesPerPage;
   const endIndex = startIndex + articlesPerPage;
   const displayedNews = searchResults.slice(startIndex, endIndex);
+//  const displayedNews2 = displayedNews.filter(item=> item.type === "liveblog");
 
   return (
     <>
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-      <Grid container sx={{ paddingTop: 2}}>
+      <Grid container sx={{ paddingTop: 2}} spacing={20}>
         <Grid item xs={12} sm={12} md={12} lg={12}>
           <TextField label="Author" placeholder="Author" />
           <TextField label="Category" placeholder="Category" />
