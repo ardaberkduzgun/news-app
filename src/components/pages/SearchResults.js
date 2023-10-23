@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Paper,Grid, Box, Button, TextField } from '@mui/material';
+import { Paper, Grid, Box, Button, TextField } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
@@ -13,6 +13,9 @@ const SearchResults = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [page, setPage] = useState(1);
   const articlesPerPage = 20;
+
+  const handleFilter = () => {
+  };
 
   useEffect(() => {
     const newsApiKey = process.env.REACT_APP_NEWSAPI_KEY;
@@ -68,47 +71,45 @@ const SearchResults = () => {
 
   return (
     <>
-    <Grid item xs={12} sm={12} md={12} lg={12}>
-      <TextField>
-        Author
-      </TextField>
-      <TextField>
-        Category
-        </TextField>
-        <TextField>
-        Date
-        </TextField>
-      <Button>
-          Filter
-      </Button>
-    </Grid>
-    <Grid className="news-container" sx={{paddingLeft:1}}>
-      <Grid container spacing={2}>
-        {displayedNews.map((article, index) => (
-          <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
-            <Paper elevation={3} className="news-article">
-              <h2>{article.title || article.webTitle}</h2>
-              <p>{article.description || article.abstract}</p>
-              <Button component={Link} to={article.url || article.webUrl} target="_blank" rel="noopener noreferrer">
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+      <Grid container sx={{ paddingTop: 2}}>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
+          <TextField label="Author" placeholder="Author" />
+          <TextField label="Category" placeholder="Category" />
+          <TextField label="Date" placeholder="Date" />
+          <Button variant="contained" color="primary" onClick={handleFilter} sx={{borderRadius: 4 }}>
+            Filter
+          </Button>
+        </Grid>
+      </Grid>
+      </Box>
+      <Grid className="news-container" sx={{ paddingLeft: 1 }}>
+        <Grid container spacing={2}>
+          {displayedNews.map((article, index) => (
+            <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
+              <Paper elevation={3} className="news-article">
+                <h2>{article.title || article.webTitle}</h2>
+                <p>{article.description || article.abstract}</p>
+                <Button component={Link} to={article.url || article.webUrl} target="_blank" rel="noopener noreferrer">
                   Learn More
                 </Button>
-              <CustomCardMedia article={article}/>
-            </Paper>
-            {(index + 1) % 4 === 0 && (
-              <Box sx={{ borderTop: 1, borderColor: 'divider' }} mt={2} mb={2} display={{ xs: 'none', sm: 'none', md: 'inline-block', lg:'inline-block' }} />
-            )}
-          </Grid>
-        ))}
+                <CustomCardMedia article={article} />
+              </Paper>
+              {(index + 1) % 4 === 0 && (
+                <Box sx={{ borderTop: 1, borderColor: 'divider' }} mt={2} mb={2} display={{ xs: 'none', sm: 'none', md: 'inline-block', lg: 'inline-block' }} />
+              )}
+            </Grid>
+          )) }
+        </Grid>
+        <Pagination
+          count={Math.ceil(searchResults.length / articlesPerPage)}
+          page={page}
+          onChange={handleChangePage}
+          color="primary"
+          size="large"
+          style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
+        />
       </Grid>
-      <Pagination
-        count={Math.ceil(searchResults.length / articlesPerPage)}
-        page={page}
-        onChange={handleChangePage}
-        color="primary"
-        size="large"
-        style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
-      />
-    </Grid>
     </>
   );
 };
