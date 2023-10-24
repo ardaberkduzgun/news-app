@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Grid, Paper, Button, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
-import Pagination from '@mui/material/Pagination';
-import CustomCardMedia from '../common/CustomCardMedia'
 import DisplayedNewsGrid from '../common/DisplayedNewsGrid';
 
 const Science = () => {

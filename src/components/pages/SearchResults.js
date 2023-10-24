@@ -106,7 +106,7 @@ const SearchResults = () => {
   const startIndex = (page - 1) * articlesPerPage;
   const endIndex = startIndex + articlesPerPage;
   const displayedNews = searchResults.slice(startIndex, endIndex);
-//  const displayedNews2 = displayedNews.filter(item=> item.type === "liveblog");
+//  TODO filter
 
   return (
     <>
