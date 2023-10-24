@@ -49,7 +49,7 @@ const Register = () => {
 
     const newUser = registerUser(username, password, name, surname, interests, email);
     if (newUser) {
-      navigate('/');
+      navigate('/personalized');
       login(username);
     } else {
       logout();

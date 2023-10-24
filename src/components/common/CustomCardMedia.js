@@ -1,7 +1,7 @@
 import { CardMedia } from '@mui/material';
 
 const CustomCardMedia = ({ article }) => {
-    // Set the image URL based on conditions
+
     const image = article.urlToImage !== undefined
       ? article.urlToImage
       : article.source !== undefined

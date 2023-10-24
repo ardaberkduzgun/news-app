@@ -5,7 +5,6 @@ import AuthenticationPage from './components/authentication/AuthenticationPage';
 import Header from './components/Header';
 import TopHeadlines from './components/pages/TopHeadlines';
 import SearchResults from './components/pages/SearchResults';
-import Finance from './components/pages/Finance';
 import Sports from './components/pages/Sports';
 import Business from './components/pages/Business';
 import Arts from './components/pages/Art';
@@ -41,7 +40,6 @@ function App() {
       <Routes>
         <Route path="/" element={<News />} />
         <Route path="/top-headlines" element={<TopHeadlines />} />
-        <Route path="/finance" element={<Finance />} />
         <Route path="/sports" element={<Sports />} />
         <Route path="/business" element={<Business />} />
         <Route path="/science" element={<Science />} />

@@ -46,9 +46,6 @@ const Header = () => {
                 <Button component={Link} to="/top-headlines" color="inherit" variant="text">
                   Headlines
                 </Button>
-                <Button component={Link} to="/finance" color="inherit" variant="text">
-                  Finance
-                </Button>
               </Grid>
               <Grid>
                 <Button component={Link} to="/sports" color="inherit" variant="text">

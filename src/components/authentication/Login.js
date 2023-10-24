@@ -19,7 +19,7 @@ const Login = () => {
     const user = users.find((user) => user.username === username && user.password === password);
     if (user) {
       console.log('Login successful');
-      navigate('/'); 
+      navigate('/personalized'); 
       login(username);
       
     } else {
